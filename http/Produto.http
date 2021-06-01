@@ -2,7 +2,58 @@
 
 @baseURL = http://localhost:4000
 
+//@id = Rexona Feminino
+@id = 60b6aa0ab3df5214b40b3019
+//@idCategoria = Perfumaria
+@idCategoria = 60b694acbc2f5f0ed42a8414 
+
 ###
 // GET - Lista os produtos
 GET {{baseURL}}/produtos
 Content-Type: application/json
+
+###
+// GET - Lista um produto pelo id
+GET {{baseURL}}/produtos/{{id}}
+Content-Type: application/json
+
+###
+// GET - Lista os produtos pelo id da categoria
+GET {{baseURL}}/produtos/categoria/{{idCategoria}}
+Content-Type: application/json
+
+###
+// POST - Inclui um novo produto
+POST {{baseURL}}/produtos
+Content-Type: application/json
+
+{
+"nome": "Rexona Masculino", 
+"status": "ativo",
+"categoria": "60b694acbc2f5f0ed42a8414",
+"valor": 10.50,
+"quantidade": 5,
+"data_abastecimento": "01/06/2021",
+"data_vencimento": "05/06/2021"
+}
+
+###
+// DELETE - Apaga um produto
+DELETE {{baseURL}}/produtos/{{id}}
+Content-Type: application/json
+
+###
+// PUT - Alterar produto
+PUT {{baseURL}}/produtos
+Content-Type: application/json
+
+{
+"_id": "60b6aa0ab3df5214b40b3019",
+"nome": "Rexona Feminino", 
+"status": "ativo",
+"categoria": "60b694acbc2f5f0ed42a8414",
+"valor": 10.80,
+"quantidade": 10,
+"data_abastecimento": "01/06/2021",
+"data_vencimento": "05/06/2021"
+}
