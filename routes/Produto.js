@@ -44,8 +44,8 @@ router.get('/:id', async(req, res) => {
 })
 
 /************************************************** 
- * Lista um produto pelo id da categoria
- * GET /produtos/categoria:id
+ * Lista os produtos pelo id da categoria
+ * GET /produtos/categoria/:id
 ***************************************************/
 router.get('/categoria/:id', async(req, res) => {
     try {
