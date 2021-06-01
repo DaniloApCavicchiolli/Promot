@@ -19,11 +19,11 @@ app.get('/', (req, res) => {
                 versao: '1.0.0'})
 })
 
-/* Rotas do Produto */
-app.use('/produtos', rotasProduto)
-
 /*Rotas da Categoria */
 app.use('/categorias', rotasCategoria)
+
+/* Rotas do Produto */
+app.use('/produtos', rotasProduto)
 
 app.listen(PORT, (req, res) => {
     console.log(`Servidor web iniciado na porta ${PORT}`)

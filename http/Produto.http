@@ -1,0 +1,8 @@
+// Teste de requisições - Produto
+
+@baseURL = http://localhost:4000
+
+###
+// GET - Lista os produtos
+GET {{baseURL}}/produtos
+Content-Type: application/json

@@ -34,4 +34,4 @@ const ProdutoSchema = new mongoose.Schema(
   },{timestamps: true} // controlar data da criação e última alteração
 )
 
-module.exports = mongoose.model("Produto", ProdutoSchema)
+module.exports = mongoose.model("produto", ProdutoSchema)
