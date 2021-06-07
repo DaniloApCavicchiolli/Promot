@@ -18,7 +18,7 @@ router.get('/', async(req, res) => {
         const produtos = await Produto
                                     .find({"status":"ativo"})//.find()= Filtrar os status e Traser somente os restaurantes que estão "ativo"
                                     .sort({nome: 1})//.sort({nome: 1}) ordenando pelo nome, "1" ordem ascendente e "-1" ordem descendente 
-                                    .populate("categoria", "nome")//.populate()= Popule a "categoria" trasendo o "nome" dela
+                                    //.populate("categoria", "nome")//.populate()= Popule a "categoria" trasendo o "nome" dela
         res.json(produtos)
     }catch (err) {
         res.status(500).send({
@@ -43,23 +43,23 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-/************************************************** 
- * Lista os produtos pelo id da categoria
- * GET /produtos/categoria/:id
-***************************************************/
-router.get('/categoria/:id', async(req, res) => {
-    try {
-        const produtos = await Produto //.find()= Filtrar a "categoria", estou recebendo via requisição(req) um parametro(params) chamado (id)
-                                    .find({"categoria":req.params.id})
-                                    .sort({nome: 1})//.sort({nome: 1}) ordenando pelo nome, "1" ordem ascendente e "-1" ordem descendente 
-                                    .populate("categoria", "nome")//.populate()= Popule a "categoria" trasendo o "nome" dela
-        res.json(produtos)
-    }catch (err) {
-        res.status(500).send({
-            errors: [{message:  `Não foi possível obter o produto com o id da categoria ${req.params.id}`}]
-        })
-    }
-})
+// /************************************************** 
+//  * Lista os produtos pelo id da categoria
+//  * GET /produtos/categoria/:id
+// ***************************************************/
+// router.get('/categoria/:id', async(req, res) => {
+//     try {
+//         const produtos = await Produto //.find()= Filtrar a "categoria", estou recebendo via requisição(req) um parametro(params) chamado (id)
+//                                     .find({"categoria":req.params.id})
+//                                     .sort({nome: 1})//.sort({nome: 1}) ordenando pelo nome, "1" ordem ascendente e "-1" ordem descendente 
+//                                     .populate("categoria", "nome")//.populate()= Popule a "categoria" trasendo o "nome" dela
+//         res.json(produtos)
+//     }catch (err) {
+//         res.status(500).send({
+//             errors: [{message:  `Não foi possível obter o produto com o id da categoria ${req.params.id}`}]
+//         })
+//     }
+// })
 
 /************************************************** 
  * Inclui um novo produto
@@ -69,8 +69,6 @@ const validaProduto = [
     check('nome').not().isEmpty().withMessage('Nome do produto é obrigatório'),
 
     check('status','Informe um status válido para o produto.').isIn(['ativo','inativo']),
-
-    check('categoria').isMongoId().trim().withMessage('A categoria do produto é inválida'),
 
     check('data_abastecimento').not().isEmpty().withMessage('A data de abastecimento do produto é obrigatório'),
 

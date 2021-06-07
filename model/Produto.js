@@ -14,11 +14,6 @@ const ProdutoSchema = new mongoose.Schema(
       default: 'ativo',
       required: true
     },
-    categoria: {
-      type: Schema.Types.ObjectId, 
-      ref: 'categoria',
-      required: true
-    },
     valor: {
       type: Number,
       required: true
