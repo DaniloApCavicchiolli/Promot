@@ -23,7 +23,7 @@ const ProdutoSchema = new mongoose.Schema(
         required: true
       },
     data_abastecimento: {
-        type: Number,
+        type: String,
         require: true
       },
     data_vencimento: {
