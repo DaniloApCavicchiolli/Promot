@@ -15,15 +15,15 @@ const ProdutoSchema = new mongoose.Schema(
       required: true
     },
     valor: {
-      type: String,
+      type: Number,
       required: true
     },
     quantidade: {
-        type: String,
+        type: Number,
         required: true
       },
     data_abastecimento: {
-        type: String,
+        type: Number,
         require: true
       },
     data_vencimento: {
