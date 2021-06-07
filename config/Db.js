@@ -7,8 +7,8 @@ const MONGOURI = process.env.MONGODB_URL
 const InicializaMongoServer = async() => {
     try {
         await mongoose.connect(MONGOURI, {
-            useNewUrlParser: true, //Forçamos a utilizar o ultimo parse de URL. Digo que é uma URL válida
-            useCreateIndex: true, //Qdo necessário, utilizará a criação de indices, caso eu tenha pedido
+            useNewUrlParser: true,   //Forçamos a utilizar o ultimo parse de URL. Digo que é uma URL válida
+            useCreateIndex: true,    //Qdo necessário, utilizará a criação de indices, caso eu tenha pedido
             useFindAndModify: false, //O padrão é econtrar os registros e alterar todos. False= para ele não alterar todos os registros
             useUnifiedTopology: true //Utilizamos a engine para descoberta de servidores
         })

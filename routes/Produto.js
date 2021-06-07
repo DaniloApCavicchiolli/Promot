@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
-//express-validator = um auxiliador para fazer validações
-const { check, validationResult } = require('express-validator') //Importação do express-validator
+const { check, validationResult } = require('express-validator')
 const Produto = require('../model/Produto')
 
 /************************************************** 
@@ -14,11 +13,9 @@ const Produto = require('../model/Produto')
 //500 - Quando o erro é do lado do servidor
 router.get('/', async(req, res) => {
     try {
-        // Equivale ao "Select * from" de um Banco de dados
         const produtos = await Produto
-                                    .find({"status":"ativo"})//.find()= Filtrar os status e Traser somente os restaurantes que estão "ativo"
-                                    .sort({nome: 1})//.sort({nome: 1}) ordenando pelo nome, "1" ordem ascendente e "-1" ordem descendente 
-                                    //.populate("categoria", "nome")//.populate()= Popule a "categoria" trasendo o "nome" dela
+                                    .find({"status":"ativo"})//.find()= Filtrar os status e Traser somente os produtos que estão "ativo"
+                                    .sort({nome: 1})         //.sort({nome: 1}) ordenando pelo nome, "1" ordem ascendente e "-1" ordem descendente 
         res.json(produtos)
     }catch (err) {
         res.status(500).send({
@@ -31,10 +28,9 @@ router.get('/', async(req, res) => {
  * Lista um produto pelo id
  * GET /produtos/:id
 ***************************************************/
-//(:) = Quando é colocado dois pontos, ele intende que é um parametro que eu vou receber 
 router.get('/:id', async(req, res) => {
     try {
-        const produto = await Produto.findById(req.params.id)// findById() = Localiza pelo id 
+        const produto = await Produto.findById(req.params.id)
         res.json(produto)
     }catch (err) {
         res.status(500).send({
@@ -42,24 +38,6 @@ router.get('/:id', async(req, res) => {
         })
     }
 })
-
-// /************************************************** 
-//  * Lista os produtos pelo id da categoria
-//  * GET /produtos/categoria/:id
-// ***************************************************/
-// router.get('/categoria/:id', async(req, res) => {
-//     try {
-//         const produtos = await Produto //.find()= Filtrar a "categoria", estou recebendo via requisição(req) um parametro(params) chamado (id)
-//                                     .find({"categoria":req.params.id})
-//                                     .sort({nome: 1})//.sort({nome: 1}) ordenando pelo nome, "1" ordem ascendente e "-1" ordem descendente 
-//                                     .populate("categoria", "nome")//.populate()= Popule a "categoria" trasendo o "nome" dela
-//         res.json(produtos)
-//     }catch (err) {
-//         res.status(500).send({
-//             errors: [{message:  `Não foi possível obter o produto com o id da categoria ${req.params.id}`}]
-//         })
-//     }
-// })
 
 /************************************************** 
  * Inclui um novo produto

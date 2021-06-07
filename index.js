@@ -3,7 +3,6 @@ require('dotenv').config()//carrega as variáveis de ambiente
 const InicializaMongoServer = require('./config/Db')
 //Definindo as rotas da aplicação
 const rotasProduto = require('./routes/Produto')
-const rotasCategoria = require('./routes/Categoria')
 
 //Inicializamos o servidor mongoDB
 InicializaMongoServer()
@@ -38,9 +37,6 @@ app.get('/', (req, res) => {
    res.json({mensagem: "Api Prod 100% funcional!",
                 versao: '1.0.0'})
 })
-
-/*Rotas da Categoria */
-app.use('/categorias', rotasCategoria)
 
 /* Rotas do Produto */
 app.use('/produtos', rotasProduto)

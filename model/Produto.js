@@ -15,19 +15,19 @@ const ProdutoSchema = new mongoose.Schema(
       required: true
     },
     valor: {
-      type: Number,
+      type: String,
       required: true
     },
     quantidade: {
-        type: Number,
+        type: String,
         required: true
       },
     data_abastecimento: {
-        type: Date,
+        type: String,
         require: true
       },
     data_vencimento: {
-          type: Date,
+          type: String,
           required: true
         }
   },{timestamps: true} // controlar data da criação e última alteração
