@@ -2,7 +2,7 @@
 
 @baseURL = http://localhost:4000
 
-@id = 60bd78d176dc880479f8a4c4
+@id = 60bf57e6c45b730326c18f92
 
 ###
 // GET - Lista os produtos
@@ -20,7 +20,7 @@ POST {{baseURL}}/produtos
 Content-Type: application/json
 
 {
-"nome": "Rexona", 
+"nome": "Teste 3", 
 "status": "ativo",
 "valor": 10.50,
 "quantidade": 5,
@@ -39,8 +39,8 @@ PUT {{baseURL}}/produtos
 Content-Type: application/json
 
 {
-"_id": "60bd78d176dc880479f8a4c4",
-"nome": "Rexona Feminino alterado", 
+"_id": "60bf57e6c45b730326c18f92",
+"nome": "Teste 3 alterado", 
 "status": "ativo",
 "valor": 10.80,
 "quantidade": 10,
