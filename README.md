@@ -7,7 +7,7 @@ Danilo Aparecido Cavicchiolli
 Aplicação para trabalho da faculdade.
 O objetivo da aplicação é fazer fazer o CRUD de itens.
 
-# Bacno de dados
+# Banco de dados
 A conexão com o banco de dados está sendo feita na pasta config > no arquivo Db.js.
 
 # Executar
