@@ -2,10 +2,7 @@
 
 @baseURL = http://localhost:4000
 
-
 @id = 60bd78d176dc880479f8a4c4
-//@idCategoria = Perfumaria
-# @idCategoria = 60b694acbc2f5f0ed42a8414 
 
 ###
 // GET - Lista os produtos
@@ -17,11 +14,6 @@ Content-Type: application/json
 GET {{baseURL}}/produtos/{{id}}
 Content-Type: application/json
 
-# ###
-# // GET - Lista os produtos pelo id da categoria
-# GET {{baseURL}}/produtos/categoria/{{idCategoria}}
-# Content-Type: application/json
-
 ###
 // POST - Inclui um novo produto
 POST {{baseURL}}/produtos
@@ -30,8 +22,8 @@ Content-Type: application/json
 {
 "nome": "Rexona", 
 "status": "ativo",
-"valor": "10.50",
-"quantidade": "5",
+"valor": 10.50,
+"quantidade": 5,
 "data_abastecimento": "01/06/2021",
 "data_vencimento": "05/06/2021"
 }
@@ -50,8 +42,8 @@ Content-Type: application/json
 "_id": "60bd78d176dc880479f8a4c4",
 "nome": "Rexona Feminino alterado", 
 "status": "ativo",
-"valor": "10.80",
-"quantidade": "10",
+"valor": 10.80,
+"quantidade": 10,
 "data_abastecimento": "01/06/2021",
 "data_vencimento": "05/06/2021"
 }
